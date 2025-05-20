@@ -14,12 +14,13 @@
     <div class=" p-16 w-screen">
         <video id="video" controls class="w-full" autoplay="true">
         </video>
+        <input type="hidden" id="host_js" value="{{$host}}">
     </div>
 
     <script>
         //variable local id de video
         var video = document.getElementById('video');
-
+        let host = $("#host_js").val();
 
         $( document ).ready(function() {
             getStreamkey();
@@ -33,8 +34,10 @@
             var url = new URL(url_string);
             var c = url.searchParams.get("sk");
 
+            console.log(host);
+
             $.ajax({
-                url: "http://localhost:8000/webhook_canal1/" + c,
+                url: "http://"+host+"/webhook_canal1/" + c,
                 type: 'GET',
                 cache: false,
                 success: function(result) {
@@ -53,7 +56,7 @@
 
         function rtmpCon(streamkey){
 
-            var videoSrc = 'http://localhost:8080/canal1/' + streamkey + '.m3u8';
+            var videoSrc = 'http://'+host+'/canal1/' + streamkey + '.m3u8';
 
             if (Hls.isSupported()) {
                 var config = {

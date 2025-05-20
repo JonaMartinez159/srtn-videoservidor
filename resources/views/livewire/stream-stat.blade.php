@@ -1,7 +1,7 @@
 <div>
   
     <div>
-        <iframe id="myIfr" class="w-full h-[350px]" src="http://localhost:8080/stat" frameborder="0"></iframe>
+        <iframe id="myIfr" class="w-full h-[350px]" src="http://{{$host}}:8080/stat" frameborder="0"></iframe>
     </div>
 
 </div>
@@ -11,7 +11,8 @@
     let ifr = document.getElementById('myIfr');
 
     setInterval(() => {
-        ifr.src ="http://localhost:8080/stat";
+        //cambiar por host
+        ifr.src ="http://jmautomations.nl:8080/stat";
     }, "5000");
 
 

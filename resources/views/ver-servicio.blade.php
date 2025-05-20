@@ -1,8 +1,7 @@
 <x-app-layout>
     <div class="grid grid-cols-12 gap-6 mb-4">
         <div class="col-span-6 bg-white">
-            <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" controls autoplay="true" muted="true">
-            </video>
+            <iframe src="{{ $datos_de_servicio['enlace_consumo_web']}}" frameborder="0" class="w-full h-full"></iframe>
             
             <div class="relative overflow-x-auto">
                 <!--

@@ -7,6 +7,8 @@ use App\Models\Servicio;
 
 class Canal1 extends Controller
 {
+    public $host;
+
     public function authNginxService(){
         if(isset($_POST['app']) && isset($_POST['name'])){
             $app = $_POST['app'];
@@ -47,8 +49,8 @@ class Canal1 extends Controller
     }
 
     public function show($servicio_key){
-        //Obtener el streamkey
+        $this->host = env('APP_HOST');
         
-        return view('canal1', ['servicio_key' => $servicio_key]);
+        return view('canal1', ['servicio_key' => $servicio_key, 'host' => $this->host]);
     }
 }

@@ -9,11 +9,11 @@ class VerServicio extends Controller
 {
 
     public function show($servicio_key){
-        $host = env('APP_HOST', 'localhost'); 
+        $host = env('APP_HOST'); 
 
         $servicios_data = Servicio::FindOrFail($servicio_key)->toArray();
         $enlace_publicacion = 'rtmp://'.$host.'/'.$servicios_data['aplicacion'].'?'.$servicios_data['servicio_key'];
-        $enlace_consumo_hls = 'rtmp://'.$host.'/'.$servicios_data['aplicacion'].'/hls/'.$servicios_data['stream_key'].'.m3u8';
+        $enlace_consumo_hls = 'http://'.$host.'/'.$servicios_data['aplicacion'].'/'.$servicios_data['stream_key'].'.m3u8';
         $enlace_consumo_web = 'http://'.$host.'/'.$servicios_data['aplicacion'].'/show?sk='.$servicios_data['servicio_key'];
 
         $datos_de_servicio = array(
