@@ -15,7 +15,7 @@
         <video id="video" controls class="w-full" autoplay="true">
         </video>
         <input type="hidden" id="host_js" value="{{$host}}">
-    </div>
+    </div> 
 
     <script>
         //variable local id de video
