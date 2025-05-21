@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="grid grid-cols-12 gap-6 mb-4">
-        <div class="col-span-6 bg-white">
+        <div class="lg:col-span-6 col-span-12 bg-white">
             <iframe src="{{ $datos_de_servicio['enlace_consumo_web']}}" frameborder="0" class="w-full h-full"></iframe>
             
             <div class="relative overflow-x-auto">
@@ -37,14 +37,14 @@
             </div>
         </div>
         
-        <div class="col-span-6 w-full">      
+        <div class="md:col-span-6 col-span-12 w-full">      
             @livewire('EnlacesDeServicio', ['datos_de_servicio' => $datos_de_servicio])
             
         </div>
         
     </div>  
 
-    <div class="col-span-6 overflow-x-auto shadow-md sm:rounded-lg bg-white p-6">
+    <div class="md:col-span-6 overflow-x-auto shadow-md sm:rounded-lg bg-white p-6">
         <p>Estadisticas</p>
 
         @livewire('StreamStat')

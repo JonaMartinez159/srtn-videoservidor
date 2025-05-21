@@ -14,6 +14,9 @@
         <!-- hlsjs -->
         <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
+        <!-- sweetalert -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 

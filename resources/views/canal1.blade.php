@@ -11,7 +11,7 @@
 </head>
 <body>
     
-    <div class=" p-16 w-screen">
+    <div class=" p-4 w-screen">
         <video id="video" controls class="w-full" autoplay="true">
         </video>
         <input type="hidden" id="host_js" value="{{$host}}">
@@ -43,7 +43,7 @@
                 success: function(result) {
 
                     let parse_result = JSON.parse(result);
-                    let streamkey = parse_result[0]['stream_key'];
+                    let streamkey = parse_result[0]['stream_key_published'];
 
                     rtmpCon(streamkey);
                     

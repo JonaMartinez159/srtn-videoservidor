@@ -3,7 +3,9 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Livewire\Attributes\On;
 use App\Models\Servicio;
+
 
 
 class CrearServicio extends Component
@@ -19,7 +21,7 @@ class CrearServicio extends Component
     public $descripcion;
     
     //seleccionado a eliminar
-    public $servicio_a_eliminar;
+    public $id_servicio;
 
     protected $rules = [
         'nombre' => 'required|unique:servicios|min:3',
@@ -46,7 +48,19 @@ class CrearServicio extends Component
     }
 
     public function eliminarServicio($id_servicio){
-        $this->servicio_a_eliminar = Servicio::find($id_servicio)->delete();
+        $this->id_servicio = $id_servicio;
+        $this->dispatch('confirmDelete', id_servicio_a_eliminar: $this->id_servicio);
+    }
+
+    #[On('eliminarConfirmado')]
+    public function eliminar($id_servicio_a_eliminar){
+        $this->servicio_a_eliminar = Servicio::find($id_servicio_a_eliminar);
+
+        if($this->servicio_a_eliminar->estado != '1'){
+            $this->servicio_a_eliminar->delete();
+        }else{
+            $this->dispatch('errorDelete');
+        }
     }
 
     public function render()

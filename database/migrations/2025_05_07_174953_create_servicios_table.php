@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('aplicacion', '25')->nullable(false);
             $table->string('servicio_key', '40')->nullable(false);
             $table->string('stream_key', '40')->nullable(false);
+            $table->string('stream_key_published', '40')->nullable();
             $table->string('nombre', '50')->nullable(false);
             $table->text('descripcion')->nullable();
             $table->string('estado', '1')->nullable();
