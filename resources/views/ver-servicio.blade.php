@@ -1,10 +1,10 @@
 <x-app-layout>
-    <div class="grid grid-cols-12 gap-6 mb-4">
-        <div class="lg:col-span-6 col-span-12 bg-white">
+    <div class="grid md:grid-cols-2 gap-6 mb-4">
+        <div class="bg-white">
             <iframe src="{{ $datos_de_servicio['enlace_consumo_web']}}" frameborder="0" class="w-full h-full"></iframe>
             
+            <!-- 
             <div class="relative overflow-x-auto">
-                <!--
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <tbody>
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
@@ -33,18 +33,19 @@
                         </tr>
                     </tbody>
                 </table>
-                -->
+                
             </div>
+            -->
         </div>
         
-        <div class="md:col-span-6 col-span-12 w-full">      
+        <div class="w-full">      
             @livewire('EnlacesDeServicio', ['datos_de_servicio' => $datos_de_servicio])
             
         </div>
         
     </div>  
 
-    <div class="md:col-span-6 overflow-x-auto shadow-md sm:rounded-lg bg-white p-6">
+    <div class="overflow-x-auto shadow-md sm:rounded-lg bg-white p-6">
         <p>Estadisticas</p>
 
         @livewire('StreamStat')

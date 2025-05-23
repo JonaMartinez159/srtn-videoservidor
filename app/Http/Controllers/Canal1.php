@@ -41,6 +41,18 @@ class Canal1 extends Controller
                     $servicio_a_editar->ip_ultima_publicacion = $ipcliente;
                     $servicio_a_editar->stream_key_published = $streamkey_pre;
                     $servicio_a_editar->save();
+                }elseif($servicio_existente->aplicacion == 'Canal1' && $servicio_existente->stream_key == $streamkey && $servicio_existente->estado == '1'){
+                    if($streamkey_pre != $servicio_existente->stream_key_published){
+                        //insertar
+                        $servicio_a_editar = Servicio::find($servicio_existente->id);
+
+                        $servicio_a_editar->estado = '1';
+                        $servicio_a_editar->ip_ultima_publicacion = $ipcliente;
+                        $servicio_a_editar->stream_key_published = $streamkey_pre;
+                        $servicio_a_editar->save();
+                    }else{
+                        abort(404);
+                    }
                 }else{
                     abort(404);
                 }
