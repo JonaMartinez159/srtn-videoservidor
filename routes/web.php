@@ -22,11 +22,12 @@ Route::get('/', function () {
 });
 
 //Canales
-Route::get('/Canal1/{servicio_key}', [Canal1::class, 'show']);
+Route::get('/ver/{servicio_key}', [Canal1::class, 'show']);
 
 //Webhooks
 Route::get('/webhook_canal1/{servicio_key}', [Canal1::class, 'getStreamKey']);
 Route::post('/webhook_canal1', [Canal1::class, 'authNginxService']);
+Route::get('/webhook_grabacion', [Canal1::class, 'nginxRecordService']);
 
 Livewire::setUpdateRoute(function ($handle) {
     return Route::post('/public/livewire/update', $handle);

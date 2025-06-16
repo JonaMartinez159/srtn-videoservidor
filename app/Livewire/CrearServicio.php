@@ -5,7 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Models\Servicio;
-
+use App\Models\Programa;
 
 
 class CrearServicio extends Component
@@ -17,8 +17,12 @@ class CrearServicio extends Component
     //info de servicios
     public $nombre;
     public $aplicacion;
+    public $idPrograma;
     public $stream_key;
     public $descripcion;
+
+    //filtro
+    public $filtro;
     
     //seleccionado a eliminar
     public $id_servicio;
@@ -36,6 +40,7 @@ class CrearServicio extends Component
 
         $servicio->nombre = $this->nombre;
         $servicio->aplicacion = $this->aplicacion;
+        $servicio->id_programa = $this->idPrograma;
         $servicio->stream_key = $this->stream_key;
         $servicio->descripcion = $this->descripcion;
 
@@ -65,7 +70,8 @@ class CrearServicio extends Component
 
     public function render()
     {   
-        $servicios_activos = Servicio::all();
-        return view('livewire.crear-servicio', ['servicios_activos' => $servicios_activos]);
+        $servicios_activos = Servicio::where('aplicacion', $this->filtro)->get();
+        $programas = Programa::all();
+        return view('livewire.crear-servicio', ['servicios_activos' => $servicios_activos, 'programas' => $programas]);
     }
 }

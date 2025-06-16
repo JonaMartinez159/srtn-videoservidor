@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('servicios', function (Blueprint $table) {
             $table->id();
             $table->string('aplicacion', '25')->nullable(false);
+            $table->integer('id_programa')->nullable();
             $table->string('servicio_key', '40')->nullable(false);
             $table->string('stream_key', '40')->nullable(false);
             $table->string('stream_key_published', '40')->nullable();

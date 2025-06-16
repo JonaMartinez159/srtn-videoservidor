@@ -3,7 +3,7 @@
         <div class="bg-white">
             <iframe src="{{ $datos_de_servicio['enlace_consumo_web']}}" frameborder="0" class="w-full h-full"></iframe>
             
-            <!-- 
+            <!--
             <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <tbody>

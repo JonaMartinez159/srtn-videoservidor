@@ -3,6 +3,13 @@
         <div class="flex justify-items-end justify-end w-full pb-2">
             <x-button wire:click="$set('showModal', true)">Crear Nuevo</x-button>
         </div>
+
+        <select name="filtro" wire:model.live="filtro" id="filtro">
+            <option value="Ocasionales" selected>Ocasionales</option>
+            <option value="Programas">Programas</option>
+            <option value="Permanentes">Permanentes</option>
+        </select>
+
         <div class="flex w-full">
             @if($servicios_activos->toArray()==null)
 
@@ -113,19 +120,63 @@
                 <label for="descripcion" class="block font-medium mt-3">Descripción:</label>
                 <textarea id="descripcion" name="descripcion" wire:model="descripcion" rows="3" class="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-blue-300"></textarea>
                 
-                <!--  Aplicacion -->
+                <!--  Aplicacion 
                 <label for="aplicacion" class="block font-medium mt-2">Aplicacion</label>
                 <select id="aplicacion" required name="aplicacion" wire:model="aplicacion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option value="" selected>Elige una aplicacion</option>
                     <option value="Canal1">Canal1</option>
                     <option value="Canal2">Canal2</option>
                     <option value="tele10">Tele10</option>
-                </select>                
+                </select> -->          
+                     
                 <!--  Stream Key -->
                 <label for="stream_key" class="block font-medium mt-2">Stream-key</label>
                 <input type="text" id="stream_key" name="stream_key" wire:model="stream_key" required minlength="3" class="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-blue-300">
-                @error('stream_key') <span class="error">{{ $message }}</span> @enderror
+                @error('stream_key') <span class="error">{{ $message }}</span> @enderror <br>
 
+                <label for="aplicacion" class="block font-medium mt-3">Tipo de servicio</label>
+                <label class="block">
+                    <input type="radio" name="aplicacion" id="ocasional" value="Ocasional" wire:model="aplicacion" class="mr-2"> Ocasional
+                </label>
+                <label class="block">
+                    <input type="radio" name="aplicacion" id="permanente" value="Permanentes" wire:model="aplicacion" class="mr-2"> Permanente
+                </label>
+                <label class="block">
+                    <input type="radio" name="aplicacion" id="programa" value="Programas" wire:model="aplicacion" class="mr-2"> Programa Habitual
+                </label>
+    
+
+                <!-- Campo Fecha de Autoeliminación -->
+                <div id="fechaAutoeliminacion" class="hidden mt-4">
+                    <label class="block text-sm font-medium">Nota</label>
+                    <p>El servicio se eliminará automaticamente en 3 dias pero la grabacion permanecera 
+                        en el archivo historico
+                    </p>
+                </div>
+
+                <!-- Campos de Programa Habitual -->
+                <div id="programaHabitual" class="hidden mt-4">
+                    <label class="block text-sm font-medium">Nombre del Programa</label>
+                    <select id="nombrePrograma" required name="idPrograma" wire:model="idPrograma"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="" selected>Elige una aplicacion</option>
+
+                        @foreach ($programas as $programa)
+                            <option value="{{ $programa->id }}">{{ $programa->nombre }}</option>
+                        @endforeach
+                        
+                    </select>
+                </div>
+
+                <script>
+                    document.querySelectorAll('input[name="aplicacion"]').forEach(radio => {
+                        radio.addEventListener('change', function () {
+                            document.getElementById('fechaAutoeliminacion').classList.toggle('hidden', this.id !== 'ocasional');
+                            document.getElementById('programaHabitual').classList.toggle('hidden', this.id !== 'programa');
+                        });
+                    });
+                </script>
+            
+            
                 <div class="flex w-full justify-center items-stretch py-2 mt-4">
                     <x-button wire:loading.attr="disabled" type="submit" class="text-center w-full">Crear</x-button>
                 </div>

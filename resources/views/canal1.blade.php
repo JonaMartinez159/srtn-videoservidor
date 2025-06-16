@@ -11,7 +11,11 @@
 </head>
 <body>
     
-    <div class=" p-4 w-screen">
+    <div id="cortinilla" style="visibility: hidden" class="absolute z-99 w-screen h-screen">
+        <video src="{{asset('videos/cortinillatele10.mp4')}}" autoplay="true" muted>
+        </video>
+    </div>
+    <div class="absolute p-4 w-screen">
         <video id="video" controls class="w-full" autoplay="true">
         </video>
         <input type="hidden" id="host_js" value="{{$host}}">
@@ -21,6 +25,7 @@
         //variable local id de video
         var video = document.getElementById('video');
         let host = $("#host_js").val();
+        var div_cortinilla = document.getElementById('cortinilla');
 
         $( document ).ready(function() {
             getStreamkey();
@@ -29,6 +34,7 @@
         function getStreamkey(){
             //Cortinilla colocada
             console.log("Cortinilla colocada por inicio de pagina");
+            div_cortinilla.style.visibility = "visible";
 
             var url_string = window.location.href;
             var url = new URL(url_string);
@@ -43,7 +49,7 @@
                 success: function(result) {
 
                     let parse_result = JSON.parse(result);
-                    let streamkey = parse_result[0]['stream_key_published'];
+                    let streamkey = parse_result[0]['stream_key'];
 
                     rtmpCon(streamkey);
                     
@@ -56,7 +62,7 @@
 
         function rtmpCon(streamkey){
 
-            var videoSrc = 'http://'+host+'/canal1/' + streamkey + '.m3u8';
+            var videoSrc = 'http://'+host+'/programas/hls/' + streamkey + '.m3u8';
 
             if (Hls.isSupported()) {
                 var config = {
@@ -80,6 +86,7 @@
 
                 hls.on(Hls.Events.BUFFER_APPENDED, function () {
                     console.log("Cortinilla fuera--------------------");
+                    div_cortinilla.style.visibility = "hidden";
                 });
 
                 hls.on(Hls.Events.LEVEL_LOADED, function (event, data) {

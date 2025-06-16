@@ -12,7 +12,8 @@
 
     setInterval(() => {
         //cambiar por host
-        ifr.src ="http://jmautomations.nl:8080/stat";
+        ifr.src ="http://localhost:8080/stat";
+        //ifr.src ="http://jmautomations.nl:8080/stat";
     }, "5000");
 
 
