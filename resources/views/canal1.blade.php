@@ -12,7 +12,7 @@
 <body>
     
     <div id="cortinilla" style="visibility: hidden" class="absolute z-99 w-screen h-screen">
-        <video src="{{asset('videos/cortinillatele10.mp4')}}" autoplay="true" muted>
+        <video src="{{asset('videos/cortinillatele10.mp4')}}" autoplay="true" muted loop >
         </video>
     </div>
     <div class="absolute p-4 w-screen">

@@ -22,7 +22,7 @@ class CrearServicio extends Component
     public $descripcion;
 
     //filtro
-    public $filtro;
+    public $filtro="Ocasional";
     
     //seleccionado a eliminar
     public $id_servicio;

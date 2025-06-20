@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         '/webhook_canal1',
-        '/Canal1',
+        '/Canal1',  
+        '/webhook_grabacion',
     ];
 }
