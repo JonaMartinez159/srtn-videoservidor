@@ -15,5 +15,7 @@ class VerifyCsrfToken extends Middleware
         '/webhook_canal1',
         '/Canal1',  
         '/webhook_grabacion',
+        '/api/all',
+        '/api',
     ];
 }

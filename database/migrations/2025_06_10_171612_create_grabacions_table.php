@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('programa', '50')->nullable(false);
             $table->string('nombre', '50')->nullable();
             $table->text('descripcion')->nullable();
+            $table->text('miniatura')->nullable();
+            $table->string('en_demanda', '1')->nullable();
             $table->timestamps();
         });
     }

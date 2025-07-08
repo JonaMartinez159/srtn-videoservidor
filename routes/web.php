@@ -5,6 +5,8 @@ use App\Models\Servicio;
 use App\Http\Controllers\VerServicio;
 use App\Http\Controllers\Reportes;
 use App\Http\Controllers\Canal1;
+use App\Http\Controllers\Episodios;
+use App\Http\Controllers\ApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,11 @@ Livewire::setUpdateRoute(function ($handle) {
     return Route::post('/public/livewire/update', $handle);
 });
 
+//Rutas api para video en demanda
+Route::get('/api/all', [ApiController::class, 'showAll']);
+Route::get('/api/{id_programa}', [ApiController::class, 'showById']);
+
+//Rutas que requieren validacion middleware de inicio de sesion
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -48,7 +55,13 @@ Route::middleware([
 
     Route::get('/servicios', function () {
         return view('servicios');
-    })->name('servicios');
+    })->name('servicios')->middleware('role:admin');
+
+    Route::get('/videoendemanda', function () {
+        return view('videoendemanda');
+    })->name('videoendemanda')->middleware('role:admin');
+
+    Route::get('/episodios/{id_programa}', [Episodios::class, 'show'])->name('episodios');
 
     Route::get('/reporte/{id_aplicacion}', [Reportes::class, 'show'])->name('reporte');
     Route::post('/reporte/{id_aplicacion}', [Reportes::class, 'enviarReporte'])->name('enviar-reporte');

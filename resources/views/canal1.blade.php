@@ -50,8 +50,8 @@
 
                     let parse_result = JSON.parse(result);
                     let streamkey = parse_result[0]['stream_key'];
-
-                    rtmpCon(streamkey);
+                    let app_ = parse.result[0]['aplicacion'].toLowerCase();
+                    rtmpCon(streamkey, app_);
                     
                 },
                 error: function() {
@@ -60,9 +60,9 @@
             });
         }
 
-        function rtmpCon(streamkey){
+        function rtmpCon(streamkey, app_){
 
-            var videoSrc = 'http://'+host+'/programas/hls/' + streamkey + '.m3u8';
+            var videoSrc = 'http://'+host+'/'+app_+'/hls/' + streamkey + '.m3u8';
 
             if (Hls.isSupported()) {
                 var config = {

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('descripcion')->nullable(false);
             $table->text('categoria')->nullable();
             $table->string('ruta', '50')->nullable(false);
+            $table->text('banner')->nullable();
             $table->timestamps();
         });
     }

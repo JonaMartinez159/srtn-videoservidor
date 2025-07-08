@@ -5,5 +5,3 @@ import Swal from 'sweetalert2'
 document.addEventListener('livewire:navigated', () => { 
     initFlowbite();
 })
-
-
