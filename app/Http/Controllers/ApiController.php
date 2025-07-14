@@ -17,11 +17,15 @@ class ApiController extends Controller
 
     public function showById($id_programa){
         $programa = Programa::find($id_programa)->toArray();
+
+        $all_data_json = json_encode($programa);
+        echo $all_data_json;
+    }
+
+    public function showEpisodiosById($id_programa){
         $episodios = Grabacion::where('programa', $id_programa)->get()->toArray();
 
-        $result = array_merge($programa, $episodios);
-
-        $all_data_json = json_encode($result);
+        $all_data_json = json_encode($episodios);
         echo $all_data_json;
     }
 }

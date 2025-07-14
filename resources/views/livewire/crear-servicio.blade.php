@@ -1,5 +1,5 @@
 <div>
-    <div class="bg-white w-full rounded-lg overflow-x-auto p-4">
+    <div class="bg-white w-full rounded-lg p-4">
         <div class="flex justify-items-end justify-end w-full pb-2">
             <x-button wire:click="$set('showModal', true)">Crear Nuevo</x-button>
         </div>
@@ -10,7 +10,7 @@
             <option value="Permanentes">Permanentes</option>
         </select>
 
-        <div class="flex w-full">
+        <div class="flex w-full overflow-x-auto">
             @if($servicios_activos->toArray()==null)
 
                 <div class="w-full text-center block jusfify-center align-items-center items-center">

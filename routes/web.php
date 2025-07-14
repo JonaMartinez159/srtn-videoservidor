@@ -20,7 +20,7 @@ use App\Http\Controllers\ApiController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/dashboard');
 });
 
 //Canales
@@ -36,8 +36,9 @@ Livewire::setUpdateRoute(function ($handle) {
 });
 
 //Rutas api para video en demanda
-Route::get('/api/all', [ApiController::class, 'showAll']);
+Route::get('/api/allprogramas', [ApiController::class, 'showAll']);
 Route::get('/api/{id_programa}', [ApiController::class, 'showById']);
+Route::get('/api/episodios/{id_programa}', [ApiController::class, 'showEpisodiosById']);
 
 //Rutas que requieren validacion middleware de inicio de sesion
 Route::middleware([
@@ -45,9 +46,20 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+    //panel
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    //Transmisiones
+    Route::get('/transmisiones', function () {
+        return view('vertransmisiones');
+    })->name('transmisiones');
+
+    //Registrar Transmision
+    Route::get('/nueva-transmision', function () {
+        return view('registrartransmision');
+    })->name('nuevatransmision');
 
     Route::get('/video-servidores', function () {
         return view('videoservidores');
@@ -61,12 +73,12 @@ Route::middleware([
         return view('videoendemanda');
     })->name('videoendemanda')->middleware('role:admin');
 
-    Route::get('/episodios/{id_programa}', [Episodios::class, 'show'])->name('episodios');
+    Route::get('/episodios/{id_programa}', [Episodios::class, 'show'])->name('episodios')->middleware('role:admin');
 
     Route::get('/reporte/{id_aplicacion}', [Reportes::class, 'show'])->name('reporte');
     Route::post('/reporte/{id_aplicacion}', [Reportes::class, 'enviarReporte'])->name('enviar-reporte');
 
-    Route::get('/aplicacion/ver/{servicio_key}',  [VerServicio::class, 'show'])->name('ver_servicio');
+    Route::get('/aplicacion/ver/{servicio_key}',  [VerServicio::class, 'show'])->name('ver_servicio')->middleware('role:admin');
 
     Livewire::setUpdateRoute(function ($handle) {
         $localePrefix = \Config::get('app.locale_prefix');
