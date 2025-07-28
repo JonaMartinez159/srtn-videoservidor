@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Servicio;
 use App\Models\Grabacion;
+use Illuminate\Support\Facades\Mail;
 
 class Canal1 extends Controller
 {
@@ -32,6 +33,12 @@ class Canal1 extends Controller
                 $servicio_a_editar = Servicio::find($servicio_existente->id);
                 $servicio_a_editar->estado = '0';
                 $servicio_a_editar->save();
+
+                //Enviar correo de posible desconexion solo si es de tipo permanente
+                if($app == 'Permanente'){
+                    Mail::to('tecnologias@srtn.org')->send(new AvisoDeDesconexion($streamkey));
+                }
+
             }else{
                 if($servicio_existente->stream_key == $streamkey && $servicio_existente->estado != '1'){
                     //insertar

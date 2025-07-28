@@ -15,6 +15,20 @@ class ApiController extends Controller
         echo $all_episodios_json;
     }
 
+    public function showPrincipales(){
+        $all_episodios = Programa::where('categoria', 'Principales')->get();
+
+        $all_episodios_json = json_encode($all_episodios);
+        echo $all_episodios_json;
+    }
+
+    public function showNuestraSeleccion(){
+        $all_episodios = Programa::where('categoria', 'Seleccion')->get();
+
+        $all_episodios_json = json_encode($all_episodios);
+        echo $all_episodios_json;
+    }
+
     public function showById($id_programa){
         $programa = Programa::find($id_programa)->toArray();
 

@@ -23,16 +23,18 @@ class VerServicio extends Controller
         }else{
             $enlace_publicacion = 'rtmp://'.$host.'/'.$servicios_data['aplicacion'].'?'.$servicios_data['servicio_key'];
         }
-        $enlace_consumo_hls = 'http://'.$host.'/'.$servicios_data['aplicacion'].'/hls/'.$servicios_data['stream_key'].'.m3u8';
-        $enlace_consumo_web = 'http://'.$host.'/ver/show?sk='.$servicios_data['servicio_key'];
+        $enlace_reproduccion_externa = 'rtmp://'.$host.'/'.$servicios_data['aplicacion'].'/'.$servicios_data['stream_key'];
+        $enlace_consumo_hls = 'https://'.$host.'/'.$servicios_data['aplicacion'].'/hls/'.$servicios_data['stream_key'].'.m3u8';
+        $enlace_consumo_web = 'https://'.$host.'/ver/show?sk='.$servicios_data['servicio_key'];
 
         $datos_de_servicio = array(
             "enlace_publicacion" => $enlace_publicacion,
+            "enlace_reproduccion_externa" => $enlace_reproduccion_externa,
             "enlace_consumo_hls" => $enlace_consumo_hls,
             "enlace_consumo_web" => $enlace_consumo_web,
         );
 
-        return view('ver-servicio', ['datos_de_servicio'=>$datos_de_servicio]);
+        return view('ver-servicio', ['datos_de_servicio'=>$datos_de_servicio, 'aplicacion'=>$servicios_data['aplicacion']]);
     }
 
     public function otro($retorno){

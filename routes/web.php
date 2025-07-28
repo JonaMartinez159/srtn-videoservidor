@@ -37,6 +37,8 @@ Livewire::setUpdateRoute(function ($handle) {
 
 //Rutas api para video en demanda
 Route::get('/api/allprogramas', [ApiController::class, 'showAll']);
+Route::get('/api/programas-principales', [ApiController::class, 'showPrincipales']);
+Route::get('/api/programas-nuestraseleccion', [ApiController::class, 'showNuestraSeleccion']);
 Route::get('/api/{id_programa}', [ApiController::class, 'showById']);
 Route::get('/api/episodios/{id_programa}', [ApiController::class, 'showEpisodiosById']);
 

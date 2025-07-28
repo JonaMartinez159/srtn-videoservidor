@@ -43,14 +43,14 @@
             console.log(host);
 
             $.ajax({
-                url: "http://"+host+"/webhook_canal1/" + c,
+                url: "https://"+host+"/webhook_canal1/" + c,
                 type: 'GET',
                 cache: false,
                 success: function(result) {
 
                     let parse_result = JSON.parse(result);
                     let streamkey = parse_result[0]['stream_key'];
-                    let app_ = parse.result[0]['aplicacion'].toLowerCase();
+                    let app_ = parse_result[0]['aplicacion'].toLowerCase();
                     rtmpCon(streamkey, app_);
                     
                 },
@@ -62,7 +62,7 @@
 
         function rtmpCon(streamkey, app_){
 
-            var videoSrc = 'http://'+host+'/'+app_+'/hls/' + streamkey + '.m3u8';
+            var videoSrc = 'https://'+host+'/'+app_+'/hls/' + streamkey + '.m3u8';
 
             if (Hls.isSupported()) {
                 var config = {

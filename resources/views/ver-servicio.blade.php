@@ -1,8 +1,13 @@
 <x-app-layout>
     <div class="grid md:grid-cols-2 gap-6 mb-4">
         <div class="bg-white">
-            <iframe src="{{ $datos_de_servicio['enlace_consumo_web']}}" frameborder="0" class="w-full h-full"></iframe>
-            
+            @if ($aplicacion == 'Permanentes')
+                <div class="px-6 pt-8">
+                    <p>Los servicios permanentes no generan HLS por el consumo CPU, Para visualizar este servicio utilize un reproductor externo</p>
+                </div>
+            @else
+                <iframe src="{{ $datos_de_servicio['enlace_consumo_web']}}" frameborder="0" class="w-full h-full"></iframe>
+            @endif
             <!--
             <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -48,7 +53,7 @@
     <div class="overflow-x-auto shadow-md sm:rounded-lg bg-white p-6">
         <p>Estadisticas</p>
 
-        @livewire('StreamStat')
+        
     </div>
     
 </x-app-layout>

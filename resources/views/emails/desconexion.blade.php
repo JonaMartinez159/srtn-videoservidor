@@ -1,0 +1,1 @@
+<p>El servicio con Streamkey: {{$streamkey}} se ha desconectado, es posible que este intentando reconectar, visite el portal para ver lo que esta sucediendo.</p>
