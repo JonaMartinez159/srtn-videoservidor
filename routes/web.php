@@ -19,6 +19,16 @@ use App\Http\Controllers\ApiController;
 |
 */
 
+Route::match(['get', 'post'], '/adminer', function (Request $request) {
+    $_SERVER['REQUEST_URI'] = '/adminer';
+
+    // Opcionalmente puedes pasar parámetros desde Laravel a Adminer
+    ob_start();
+    include resource_path('views/adminer/adminer.php');
+    return response(ob_get_clean())
+        ->header('Content-Type', 'text/html');
+})->middleware('auth');
+
 Route::get('/', function () {
     return redirect('/dashboard');
 });
