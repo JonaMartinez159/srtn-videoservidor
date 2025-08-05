@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="px-4 max-w-screen-xl">
+    <div class="md:px-4 max-w-screen-xl">
         @role(['admin', 'usuario'])
         <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
             <a href="#" class="bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-blue-400 mb-2">

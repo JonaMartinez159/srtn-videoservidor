@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Grabacion;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\On;
 
 class ModalEditarEpisodio extends Component
 {
@@ -25,6 +26,8 @@ class ModalEditarEpisodio extends Component
 
         $grabacion->nombre = $this->nombre;
         $grabacion->descripcion = $this->descripcion;
+        //dd($this->foto);
+
 
         // Validamos y procesamos la imagen solo si fue seleccionada
         if ($this->foto) {
@@ -55,6 +58,7 @@ class ModalEditarEpisodio extends Component
         $episodio_en_demanda->save();
     }
 
+    #[On('refresh-the-component')]
     public function render()
     {
         $this->en_demanda = Grabacion::find($this->id_episodio);

@@ -12,7 +12,7 @@
                         @endif
                     </a>
                     <div class="p-5">
-                        <a href="/ver/{{$servicio->servicio_key}}">
+                        <a href="/ver/show?sk={{$servicio->servicio_key}}" target="_blank">
                             <h5 class="font-bold tracking-tight text-gray-900 dark:text-white">{{$servicio->nombre}}</h5>
                         </a>
                         <p class="text-xs mb-2">{{$servicio->aplicacion}}</p>

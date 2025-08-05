@@ -19,11 +19,11 @@
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">
-            <div class="grid grid-cols-7">
+            <div class="grid md:grid-cols-7">
                 <div class="col-span-4">
                     <img src="{{asset('images/fondologin3.jpg')}}" class="h-full object-fill w-full"  alt="">
                 </div>
-                <div class="col-span-3">
+                <div class="col-span-3 ">
                     {{ $slot }}
                 </div>
             </div>

@@ -12,7 +12,7 @@
                         <p class="tex-center"> No Hay Datos</p>
                     </div>
                 @else
-                    <div class="grid grid-cols-3 p-4 gap-4">
+                    <div class="grid md:grid-cols-3 p-4 gap-4">
                         @foreach ($programas as $key => $item)
                             
                             @livewire('EditarPrograma', ['id_programa' => $item['id']], key($key))

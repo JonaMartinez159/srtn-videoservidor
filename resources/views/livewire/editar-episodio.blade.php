@@ -1,5 +1,8 @@
 <div>    
     <div class="bg-white p-4 w-full">
+        <div class="flex items-end justify-end">
+            @livewire('ModalAgregarEpisodio', ['id_programa' => $id_programa])
+        </div>
         <div class="flex w-full">
             @if($episodios->toArray()==null)
 

@@ -44,10 +44,10 @@
 
                 <!--  miniatura -->
                 <label for="miniatura" class="block font-medium mt-3">Miniatura:</label>
-                <input id="miniatura"  type="file">
+                <input wire:model="foto" id="miniatura"  type="file">
 
                 <div class="flex w-full justify-center items-stretch py-2 mt-4">
-                    <x-button wire:loading.attr="disabled" type="submit" class="text-center w-full">Editar</x-button>
+                    <x-button wire:loading.attr="disabled" wire:target="foto" type="submit" class="text-center w-full">Editar</x-button>
                 </div>
             </form>
 
