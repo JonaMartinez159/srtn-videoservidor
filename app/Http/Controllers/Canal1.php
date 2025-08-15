@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Servicio;
 use App\Models\Grabacion;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\AvisoDeDesconexion;
 
 class Canal1 extends Controller
 {

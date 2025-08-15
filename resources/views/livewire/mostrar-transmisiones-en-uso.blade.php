@@ -4,7 +4,7 @@
         @if ($servicios_en_uso->toArray() != null)
             @foreach ($servicios_en_uso as $servicio)
                 <div class="bg-white h-auto border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
-                    <a href="/ver/{{$servicio->servicio_key}}">
+                    <a href="{{env('host').'/ver/show?sk='.$servicio->servicio_key}}" target="_blank">
                         @if ($servicio->aplicacion == 'Programas')
                             <img class="rounded-t-lg" src="{{ asset('images/programas.jpg') }}" alt="" />
                         @else
