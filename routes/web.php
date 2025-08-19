@@ -1,5 +1,7 @@
 <?php
 
+use Livewire\Livewire;
+
 use Illuminate\Support\Facades\Route;
 use App\Models\Servicio;
 use App\Http\Controllers\VerServicio;
@@ -7,6 +9,7 @@ use App\Http\Controllers\Reportes;
 use App\Http\Controllers\Canal1;
 use App\Http\Controllers\Episodios;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\Transmisiones;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +36,10 @@ Route::get('/', function () {
     return redirect('/dashboard');
 });
 
+    Livewire::setUpdateRoute(function ($handle) {
+        return Route::post('/custom/livewire/update', $handle)->name('custom-update');
+    });
+    
 //Canales
 Route::get('/ver/{servicio_key}', [Canal1::class, 'show']);
 
@@ -40,10 +47,6 @@ Route::get('/ver/{servicio_key}', [Canal1::class, 'show']);
 Route::get('/webhook_canal1/{servicio_key}', [Canal1::class, 'getStreamKey']);
 Route::post('/webhook_canal1', [Canal1::class, 'authNginxService']);
 Route::post('/webhook_grabacion', [Canal1::class, 'nginxRecordService']);
-
-Livewire::setUpdateRoute(function ($handle) {
-    return Route::post('/public/livewire/update', $handle);
-});
 
 //Rutas api para video en demanda
 Route::get('/api/allprogramas', [ApiController::class, 'showAll']);
@@ -67,6 +70,9 @@ Route::middleware([
     Route::get('/transmisiones', function () {
         return view('vertransmisiones');
     })->name('transmisiones');
+
+    //Transmisiones api JSON para calendario
+    Route::get('/transmisiones/all', [Transmisiones::class, 'all']);
 
     //Registrar Transmision
     Route::get('/nueva-transmision', function () {
@@ -92,8 +98,4 @@ Route::middleware([
 
     Route::get('/aplicacion/ver/{servicio_key}',  [VerServicio::class, 'show'])->name('ver_servicio')->middleware('role:admin');
 
-    Livewire::setUpdateRoute(function ($handle) {
-        $localePrefix = \Config::get('app.locale_prefix');
-        return Route::post("/{$localePrefix}/livewire/update", $handle);
-    });
 });
