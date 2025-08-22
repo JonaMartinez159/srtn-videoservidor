@@ -9,7 +9,7 @@ class Transmisiones extends Controller
 {
     public function all(){
         $todas = Transmision::all();
-        //$formato_calendario=[];
+        $formato_calendario=[];
 
         foreach($todas as $transmision){
             $formato_calendario[] = [

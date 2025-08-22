@@ -1,18 +1,18 @@
 <div wire:ignore>
     <div class="grid md:grid-cols-4 gap-4">
-        <div class="md:sticky col-span-1 w-full h-screen bg-white rounded-xl ">
+        <div class="md:col-span-1 w-full bg-white rounded-xl ">
             <div id="calendar" class="p-6 m-4 bg-white rounded-xl">
 
             </div>
 
-            <p class="text-white p-6"><b>Hoy</b></p>
+            <p class="p-6"><b>Transmisiones</b></p>
 
             <div class="px-6">
                 @livewire('TransmisionASeleccionar')
-            </div>
+            </div><br>
 
         </div>
-        <div class="col-span-3">
+        <div class="md:col-span-3 bg-white">
             @livewire('InformacionDeEventoDeCalendario')
         </div>
     </div>

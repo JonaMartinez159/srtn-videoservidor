@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('transmisions', function (Blueprint $table) {
             $table->id();
             $table->string('tipo', '25');
+            $table->string('creado_por', '3');
             $table->date('fecha');
             $table->time('hora_llegada')->nullable();
             $table->time('hora_inicio')->nullable();
