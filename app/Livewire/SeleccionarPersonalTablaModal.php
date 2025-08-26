@@ -11,13 +11,18 @@ class SeleccionarPersonalTablaModal extends Component
     public $area='camarografo';
     public $trabajadores;
     public $array_trabajadores_seleccionados=[];
+    public $array_trabajadores_seleccionados_photo=[];
 
-    public function setChecked($id_trabajador){
-        if (in_array($id_trabajador, $this->array_trabajadores_seleccionados)) {
-            $this->array_trabajadores_seleccionados = array_diff($this->array_trabajadores_seleccionados, [$id_trabajador]);
+    public function setChecked($trabajador_data){
+
+        if (in_array($trabajador_data['id'], $this->array_trabajadores_seleccionados)) {
+            $this->array_trabajadores_seleccionados = array_diff($this->array_trabajadores_seleccionados, [$trabajador_data['id']]);
+            $this->array_trabajadores_seleccionados_photo = array_diff($this->array_trabajadores_seleccionados_photo, [$trabajador_data['profile_photo_url']]);
         } else {
-            $this->array_trabajadores_seleccionados[] = $id_trabajador;
+            $this->array_trabajadores_seleccionados[] = $trabajador_data['id'];
+            $this->array_trabajadores_seleccionados_photo[] = $trabajador_data['profile_photo_url'];
         }
+        //dd($this->array_trabajadores_seleccionados);
     }
 
     public function enviarTrabajadoresConvocados(){
@@ -28,6 +33,7 @@ class SeleccionarPersonalTablaModal extends Component
     public function render()
     {
         $this->trabajadores = User::where('area', $this->area)->get();
+        //dd($this->trabajadores);
         return view('livewire.seleccionar-personal-tabla-modal');
     }
 }
