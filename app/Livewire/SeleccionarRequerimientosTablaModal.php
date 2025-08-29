@@ -21,7 +21,7 @@ class SeleccionarRequerimientosTablaModal extends Component
     }
 
     public function enviarTrabajadoresConvocados(){
-        $this->dispatch('TrabajadoresConvocados');
+        $this->dispatch('RequerimientosSeleccionados', array_requerimientos_seleccionados: $this->array_requerimientos_seleccionados);
         $this->showModalrequerimientos = false;
     }
 

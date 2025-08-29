@@ -18,7 +18,7 @@
 
 
 
-    <x-dialog-modal wire:model="showModal">
+    <x-dialog-modal-no-close wire:model="showModal" wire:ignore.self>
         <x-slot:title>
             Seleccionar Personal
         </x-slot>

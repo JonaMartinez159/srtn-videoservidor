@@ -26,7 +26,7 @@ class SeleccionarPersonalTablaModal extends Component
     }
 
     public function enviarTrabajadoresConvocados(){
-        $this->dispatch('TrabajadoresConvocados');
+        $this->dispatch('TrabajadoresConvocados', array_trabajadores_seleccionados: $this->array_trabajadores_seleccionados);
         $this->showModal = false;
     }
 

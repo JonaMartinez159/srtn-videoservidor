@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('transmisions', function (Blueprint $table) {
             $table->id();
-            $table->string('tipo', '25');
-            $table->string('creado_por', '3');
             $table->date('fecha');
             $table->time('hora_llegada')->nullable();
             $table->time('hora_inicio')->nullable();
-            $table->string('lugar', '100');
+            $table->string('nombre', '120');
             $table->text('descripcion');
-            $table->text('nota')->nullable();
-            $table->string('responsable', '30');
+            $table->string('tipo', '25');
+            $table->string('personal_convocado', '150')->nullable();
+            $table->string('requerimientos', '150')->nullable();
+            $table->string('ubicacion', '10')->nullable();
+            $table->text('fotografias');
             $table->timestamps();
         });
     }

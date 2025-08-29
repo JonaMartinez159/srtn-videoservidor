@@ -15,7 +15,7 @@
         </button>
     </div>
 
-    <x-dialog-modal wire:model="showModalrequerimientos">
+    <x-dialog-modal-no-close wire:model="showModalrequerimientos">
         <x-slot:title>
             Seleccionar Requerimientos
         </x-slot>
@@ -89,5 +89,5 @@
         <x-slot:footer>
             <x-button wire:click="enviarTrabajadoresConvocados">Aceptar</x-button>
         </x-slot>
-    </x-dialog-modal>
+    </x-dialog-modal-no-close>
 </div>

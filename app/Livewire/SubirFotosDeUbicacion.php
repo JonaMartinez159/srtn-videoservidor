@@ -18,10 +18,11 @@ class SubirFotosDeUbicacion extends Component
             'foto' => 'required|file', // Example validation rules
         ]);
 
-        $path = $this->foto->store('uploads');
+        $path = $this->foto->store('uploads', 'public');
 
         $this->fotos_url[] = $path;
 
+        $this->dispatch('FotosSeleccionadas', fotos_url: $this->fotos_url);
         session()->flash('message', 'File uploaded successfully!');
     }
 
