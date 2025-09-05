@@ -88,7 +88,44 @@
             </div>
         </div>
         <div class="w-full p-8">
-            <x-button wire:click="save" class="w-full">Registrar Evento!</x-button>
+            <x-button wire:click="save" class="w-full">Registrar Evento</x-button>
         </div>
     </div>
 </div>
+
+@script
+<script>
+    /*Livewire.on('confirmDelete', (id_servicio_a_eliminar) => {
+        Swal.fire({
+            title: 'Estas seguro?',
+            text: 'El servicio se eliminará por completo',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'si, eliminar',
+            cancelButtonText: 'No, cancelar',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $wire.dispatch('eliminarConfirmado', { id_servicio_a_eliminar:  @this.id_servicio});
+            }
+        });
+    });*/
+
+    Livewire.on('registradoCorrectamente', () => {
+        Swal.fire({
+            title: 'Listo',
+            text: 'El evento se registro correctamente',
+            icon: 'success',
+            confirmButtonText: 'Aceptar',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $wire.dispatch('creadoConfirmado');
+            }
+            if (result.isDismissed) {
+                $wire.dispatch('creadoConfirmado');
+            }
+        });
+    });
+</script>
+@endscript

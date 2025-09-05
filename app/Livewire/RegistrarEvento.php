@@ -44,8 +44,8 @@ class RegistrarEvento extends Component
 
     #[On('UbicacionSeleccionada')] 
     public function getUbicacion($ubicacion_seleccionada){
-        //dd($ubicacion_seleccionada);
         $this->ubicacion = $ubicacion_seleccionada;
+        //dd($ubicacion_seleccionada);
     }
 
     #[On('FotosSeleccionadas')]
@@ -76,6 +76,12 @@ class RegistrarEvento extends Component
 
         $transmision->save();
         
+        $this->dispatch('registradoCorrectamente');
+    }
+
+    #[On('creadoConfirmado')]
+    public function redirectConfirmado(){
+        $this->redirectRoute('transmisiones');
     }
 
     public function render()
