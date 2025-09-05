@@ -12,6 +12,21 @@
 }
 
 #fc-dom-1{
-    font-size: 15px;
+    font-size: 11px;
 }
+
+.fc-event-title{
+    font-size: 10px;
+}
+
+tr{
+    height: 2px;
+}
+
+:root {
+    --fc-border-color: none;
+    --fc-daygrid-event-dot-width: 15px;
+
+    --fc-today-bg-color: rgb(255, 255, 255);
+  }
 

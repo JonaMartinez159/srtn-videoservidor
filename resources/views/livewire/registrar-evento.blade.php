@@ -16,7 +16,7 @@
                 <!-- formulario -->
                 <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">Info General</span><br><br>
                 <div class="mx-auto p-3">
-                    <div class="grid lg:grid-cols-3 border-b-2 mb-4">
+                    <div class="grid xl:grid-cols-2 2xl-grid-cols-3 border-b-2 mb-4">
                         <div class="mb-4 inline w-fit">
                             <label class="text-sm text-gray-500">Fecha</label><br>                  
                             <input type="date" value="2025-08-01" wire:model="fecha" class="w-fit bg-gray-50 border leading-none border-gray-300 text-sm text-gray-500 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />

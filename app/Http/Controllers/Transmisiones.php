@@ -14,8 +14,9 @@ class Transmisiones extends Controller
         foreach($todas as $transmision){
             $formato_calendario[] = [
                 'id' => $transmision->id,
+                'title' => $transmision->nombre,
                 'start' => $transmision->fecha,
-                'display' => 'background',
+                'display' => 'list-item',
             ];
         }
         echo json_encode($formato_calendario);

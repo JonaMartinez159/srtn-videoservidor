@@ -1,18 +1,16 @@
 <div wire:ignore>
-    <div class="grid md:grid-cols-4 gap-4">
-        <div class="md:col-span-1 w-full bg-white rounded-xl ">
-            <div id="calendar" class="p-6 m-4 bg-white rounded-xl">
+    <div class="grid md:grid-cols-12 gap-4">
+        <div class="md:col-span-5 w-full bg-white rounded-xl ">
+            <div id="calendar" class="p-6 m-4 bg-white rounded-xl h-fit text-xs">
 
             </div>
-
-            <p class="p-6"><b>Transmisiones</b></p>
 
             <div class="px-6">
                 @livewire('TransmisionASeleccionar')
             </div><br>
 
         </div>
-        <div class="md:col-span-3 bg-white">
+        <div class="md:col-span-7 bg-white">
             @livewire('InformacionDeEventoDeCalendario')
         </div>
     </div>
@@ -32,8 +30,10 @@
                 let calendarEl = document.getElementById('calendar');
                 let calendar = new FullCalendar.Calendar(calendarEl, {
                     selectable: true,
-                    initialView: 'dayGridMonth',
                     height: 400,
+                    aspectRatio: 4,
+                    fixedWeekCount: false,
+                    initialView: 'dayGridMonth',
                     headerToolbar: {
                         start: 'prev', // will normally be on the left. if RTL, will be on the right
                         center: 'title',
