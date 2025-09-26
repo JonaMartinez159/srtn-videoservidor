@@ -91,26 +91,30 @@
             
             <div class="p-4">
                 <p class="mb-2">Ingrese la ubicacion</p>
-                <form class="max-w-md mx-auto pt-2">
+                <form class="max-w-md mx-auto pt-2" wire:submit="enviarOtraUbicacion">
                     <div class="relative z-0 w-full mb-5 group">
                         <input type="text" name="floating_email" id="floating_email"  wire:model="nombre" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                         <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre</label>
+                        <div class="text-xs text-red-800">@error('nombre') {{ $message }} @enderror</div>
                     </div>
 
                     <div class="relative z-0 w-full mb-5 group">
                         <input type="text" name="floating_password" id="floating_password" wire:model="calle" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                         <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Calle</label>
+                        <div class="text-xs text-red-800">@error('calle') {{ $message }} @enderror</div>
                     </div>
 
                     <div class="relative z-0 w-full mb-5 group">
                         <input type="text" name="floating_password" id="floating_password" wire:model="colonia" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                         <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Colonia</label>
+                        <div class="text-xs text-red-800">@error('colonia') {{ $message }} @enderror</div>
                     </div>
 
                     <div class="relative z-0 w-full mb-5 group">
                         <input type="text" name="floating_password" id="floating_password" wire:model="numero" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                         <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Numero</label>
                     </div>
+                    <x-button>Aceptar</x-button>
                 </form>
             </div>
         @endif
@@ -118,7 +122,7 @@
 
         </x-slot>
         <x-slot:footer>
-            <x-button wire:click="enviarOtraUbicacion">Aceptar</x-button>
+            
         </x-slot>
     </x-dialog-modal>
 </div>

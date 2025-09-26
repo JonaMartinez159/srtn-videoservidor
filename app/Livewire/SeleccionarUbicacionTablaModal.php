@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Livewire\Attributes\Validate;
 use App\Models\Sitio;
 
 class SeleccionarUbicacionTablaModal extends Component
@@ -11,9 +12,15 @@ class SeleccionarUbicacionTablaModal extends Component
     public $etiqueta='museos';
 
     //en caso de elegir otro
+    #[Validate('required', message: 'Debes elegir un nombre')]
     public $nombre;
+
+    #[Validate('required', message: 'Debes elegir una calle')]
     public $calle;
+
+    #[Validate('required', message: 'Debes elegir una colonia')]
     public $colonia;
+
     public $numero;
 
     public $otro_seleccionado=false;
@@ -37,6 +44,8 @@ class SeleccionarUbicacionTablaModal extends Component
     }
 
     public function enviarOtraUbicacion(){
+        $validaciones = $this->validate();
+        
         $nuevo_sitio = new Sitio();
 
         $nuevo_sitio->nombre = $this->nombre;

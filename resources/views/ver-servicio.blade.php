@@ -6,7 +6,7 @@
                     <p>Los servicios permanentes no generan HLS por el consumo CPU, Para visualizar este servicio utilize un reproductor externo</p>
                 </div>
             @else
-                <iframe src="{{ $datos_de_servicio['enlace_consumo_web']}}" frameborder="0" class="w-full h-full"></iframe>
+                <iframe src="{{ $datos_de_servicio['enlace_consumo_web']}}" frameborder="0" class="w-full lg:h-[400px] h-[300px]"></iframe>
             @endif
             <!--
             <div class="relative overflow-x-auto">

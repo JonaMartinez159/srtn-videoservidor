@@ -96,6 +96,6 @@ Route::middleware([
     Route::get('/reporte/{id_aplicacion}', [Reportes::class, 'show'])->name('reporte');
     Route::post('/reporte/{id_aplicacion}', [Reportes::class, 'enviarReporte'])->name('enviar-reporte');
 
-    Route::get('/aplicacion/ver/{servicio_key}',  [VerServicio::class, 'show'])->name('ver_servicio')->middleware('role:admin');
+    Route::get('/aplicacion/ver/{servicio_key}',  [VerServicio::class, 'show'])->name('ver_servicio');
 
 });

@@ -31,31 +31,38 @@ class InformacionDeEventoDeCalendario extends Component
     public function render()
     {
         if($this->id_evento!='0'){
-            $this->transmision_data = Transmision::find($this->id_evento);
+            $this->transmision_data = Transmision::find($this->id_evento)->toArray();
+            //dd($this->transmision_data->personal_convocado);
 
             //personal convocado
-            $personal_convocado_lenght = explode(',', $this->transmision_data[0]['personal_convocado']);
-            
-            foreach($personal_convocado_lenght as $personal_id){
-                $personal = User::find($personal_id);
+            if($this->transmision_data['personal_convocado'] != null){
+                $personal_convocado_lenght = explode(',', $this->transmision_data['personal_convocado']);
+                
+                foreach($personal_convocado_lenght as $personal_id){
+                    $personal = User::find($personal_id);
 
-                $this->personal_convocado[] =  array(['nombre' => $personal->name, 'photo' => $personal->profile_photo_url, 'area' => $personal->area]);
+                    $this->personal_convocado[] =  array(['nombre' => $personal->name, 'photo' => $personal->profile_photo_url, 'area' => $personal->area]);
+                }
             }
 
             //Requerimientos
-            $requerimientos_lenght = explode(',', $this->transmision_data[0]['requerimientos']);
-            
-            foreach($requerimientos_lenght as $requerimientos_id){
-                $requerimiento = Requerimiento::find($requerimientos_id);
+            if($this->transmision_data['requerimientos'] != null){
+                $requerimientos_lenght = explode(',', $this->transmision_data['requerimientos']);
+                
+                foreach($requerimientos_lenght as $requerimientos_id){
+                    $requerimiento = Requerimiento::find($requerimientos_id);
 
-                $this->requerimientos[] =  array(['nombre' => $requerimiento->nombre, 'photo' => $requerimiento->foto]);
+                    $this->requerimientos[] =  array(['nombre' => $requerimiento->nombre, 'photo' => $requerimiento->imagen]);
+                }
             }
 
             //Ubicacion
-            $this->ubicacion = Sitio::select('nombre', 'ubicacion')->where('id', $this->transmision_data[0]['ubicacion'])->get();
+            if($this->transmision_data['ubicacion'] != null){
+                $this->ubicacion = Sitio::find($this->transmision_data['ubicacion']);
+            }
 
             //fotos
-            $fotos_lenght = explode(',', $this->transmision_data[0]['fotografias']);
+            $fotos_lenght = explode(',', $this->transmision_data['fotografias']);
             
             foreach($fotos_lenght as $foto){
                 $this->fotos[] =  $foto;

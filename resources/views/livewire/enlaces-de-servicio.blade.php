@@ -1,5 +1,6 @@
 <div>
     <div class="w-full bg-white dark:bg-gray-800 border-gray-200 border dark:border-gray-700 shadow-sm rounded-lg p-5">
+        @role('admin')
         <label for="account-id" class="text-xs font-medium text-gray-900 dark:text-white mb-2 block">Enlace de publicacion</label>
         <div class="relative mb-4">
             <input id="account-id" type="text" class="col-span-6 bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{$datos_de_servicio['enlace_publicacion']}}" disabled readonly>
@@ -21,6 +22,7 @@
                 <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
         </div>
+        @endrole
         <label for="account-id" class="text-xs font-medium text-gray-900 dark:text-white mb-2 block">Enlace de reproduccion externa</label>
         <div class="relative mb-4">
             <input id="account-id" type="text" class="col-span-6 bg-gray-50 border border-gray-300 text-gray-500 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{$datos_de_servicio['enlace_reproduccion_externa']}}" disabled readonly>

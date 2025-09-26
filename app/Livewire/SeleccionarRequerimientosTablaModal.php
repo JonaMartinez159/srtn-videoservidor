@@ -11,12 +11,15 @@ class SeleccionarRequerimientosTablaModal extends Component
     public $requerimientos;
     public $etiqueta='camaras';
     public $array_requerimientos_seleccionados=[];
+    public $array_requerimientos_seleccionados_photo=[];
 
-    public function setChecked($id_requerimiento){
-        if (in_array($id_requerimiento, $this->array_requerimientos_seleccionados)) {
-            $this->array_requerimientos_seleccionados = array_diff($this->array_requerimientos_seleccionados, [$id_requerimiento]);
+    public function setChecked($requerimiento_data){
+        if (in_array($requerimiento_data['id'], $this->array_requerimientos_seleccionados)) {
+            $this->array_requerimientos_seleccionados = array_diff($this->array_requerimientos_seleccionados, [$requerimiento_data['id']]);
+            $this->array_requerimientos_seleccionados_photo = array_diff($this->array_requerimientos_seleccionados_photo, [$requerimiento_data['imagen']]);
         } else {
-            $this->array_requerimientos_seleccionados[] = $id_requerimiento;
+            $this->array_requerimientos_seleccionados[] = $requerimiento_data['id'];
+            $this->array_requerimientos_seleccionados_photo[] = $requerimiento_data['imagen'];
         }
     }
 

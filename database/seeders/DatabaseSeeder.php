@@ -252,167 +252,193 @@ class DatabaseSeeder extends Seeder
         //Requerimentos---------------------------------------------------------------------------------------------------------
         //Produccion Camaras----------------------------
         DB::table('requerimientos')->insert([
-            'nombre' => 'Camara SONY modelo A',
+            'nombre' => 'Camara SONY modelo',
             'tipo' => 'Produccion',
-            'etiqueta' => 'camaras'
+            'etiqueta' => 'camaras',
+            'imagen' => 'camsony.webp'
         ]);
         
         DB::table('requerimientos')->insert([
             'nombre' => 'Camara SONY modelo B',
             'tipo' => 'Produccion',
-            'etiqueta' => 'camaras'
+            'etiqueta' => 'camaras',
+            'imagen' => 'camcanon.webp'
         ]);
         
         //Produccion->Switchers-------------------------
         DB::table('requerimientos')->insert([
             'nombre' => 'Switcher ATEM',
             'tipo' => 'Produccion',
-            'etiqueta' => 'switcher'
+            'etiqueta' => 'switcher',
+            'imagen' => 'switatem.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'Switcher FORA',
             'tipo' => 'Produccion',
-            'etiqueta' => 'switcher'
+            'etiqueta' => 'switcher',
+            'imagen' => 'desco.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'Switcher Mini-ATEM',
             'tipo' => 'Produccion',
-            'etiqueta' => 'switcher'
+            'etiqueta' => 'switcher',
+            'imagen' => 'switatemmini.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'Switcher YOLOBOX',
             'tipo' => 'Produccion',
-            'etiqueta' => 'switcher'
+            'etiqueta' => 'switcher',
+            'imagen' => 'swityolo.webp'
         ]);
 
         //Produccion->iluminacion------------------------------
         DB::table('requerimientos')->insert([
             'nombre' => 'Lamapara neewer 250 con fuente',
             'tipo' => 'Produccion',
-            'etiqueta' => 'iluminacion'
+            'etiqueta' => 'iluminacion',
+            'imagen' => 'desco.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'Lampara con tripie',
             'tipo' => 'Produccion',
-            'etiqueta' => 'iluminacion'
+            'etiqueta' => 'iluminacion',
+            'imagen' => 'desco.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'Cañones luz colores RGB',
             'tipo' => 'Produccion',
-            'etiqueta' => 'iluminacion'
+            'etiqueta' => 'iluminacion',
+            'imagen' => 'luzcanon.webp'
         ]);
 
         //Produccion->Audios----------------------------------
         DB::table('requerimientos')->insert([
             'nombre' => 'Microfono MANO Shure BLX2',
             'tipo' => 'Produccion',
-            'etiqueta' => 'audio'
+            'etiqueta' => 'audio',
+            'imagen' => 'micblx2.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'Microfono SOLAPA Shure BLX1',
             'tipo' => 'Produccion',
-            'etiqueta' => 'audio'
+            'etiqueta' => 'audio',
+            'imagen' => 'micblx1solapa.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'Microfono SOLAPA Sennheiser EW-X',
             'tipo' => 'Produccion',
-            'etiqueta' => 'audio'
+            'etiqueta' => 'audio',
+            'imagen' => 'micsensolapa.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'Monitor audio bocina Yamaha 8',
             'tipo' => 'Produccion',
-            'etiqueta' => 'audio'
+            'etiqueta' => 'audio',
+            'imagen' => 'moniyamaha.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'Monitor audio bocina Steren 12',
             'tipo' => 'Produccion',
-            'etiqueta' => 'audio'
+            'etiqueta' => 'audio',
+            'imagen' => 'monisteren.webp'
         ]);
 
         //Tecnico->General------------------------------------------
         DB::table('requerimientos')->insert([
             'nombre' => 'Program de video',
             'tipo' => 'Tecnico',
-            'etiqueta' => 'general'
+            'etiqueta' => 'general',
+            'imagen' => 'programvideo.webp'
         ]);
 
         //Administrativo->alimentos---------------------------------
         DB::table('requerimientos')->insert([
             'nombre' => 'Alimentos',
             'tipo' => 'Administrativo',
-            'etiqueta' => 'general'
+            'etiqueta' => 'general',
+            'imagen' => 'desco.webp'
         ]);
 
         //Administrativo->vehiculos
         DB::table('requerimientos')->insert([
             'nombre' => 'Tsuru NISSAN 100',
             'tipo' => 'Administrativo',
-            'etiqueta' => 'vehiculos'
+            'etiqueta' => 'vehiculos',
+            'imagen' => 'cartsuru.webp'
         ]);
 
 
         DB::table('requerimientos')->insert([
             'nombre' => 'Tsuru NISSAN 101',
             'tipo' => 'Administrativo',
-            'etiqueta' => 'vehiculos'
+            'etiqueta' => 'vehiculos',
+            'imagen' => 'cartsuru.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'Tsuru NISSAN 102',
             'tipo' => 'Administrativo',
-            'etiqueta' => 'vehiculos'
+            'etiqueta' => 'vehiculos',
+            'imagen' => 'cartsuru.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'Tsuru NISSAN 103',
             'tipo' => 'Administrativo',
-            'etiqueta' => 'vehiculos'
+            'etiqueta' => 'vehiculos',
+            'imagen' => 'cartsuru.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'L200 MITSUBISHI',
             'tipo' => 'Administrativo',
-            'etiqueta' => 'vehiculos'
+            'etiqueta' => 'vehiculos',
+            'imagen' => 'carmitsu.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'Tacoma TOYOTA',
             'tipo' => 'Administrativo',
-            'etiqueta' => 'vehiculos'
+            'etiqueta' => 'vehiculos',
+            'imagen' => 'cartacoma.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'Avanza TOYOTA',
             'tipo' => 'Administrativo',
-            'etiqueta' => 'vehiculos'
+            'etiqueta' => 'vehiculos',
+            'imagen' => 'caravanza.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'One MG MOTORS 1',
             'tipo' => 'Administrativo',
-            'etiqueta' => 'vehiculos'
+            'etiqueta' => 'vehiculos',
+            'imagen' => 'desco.webp'
         ]);
 
         DB::table('requerimientos')->insert([
             'nombre' => 'One MG MOTORS 2',
             'tipo' => 'Administrativo',
-            'etiqueta' => 'vehiculos'
+            'etiqueta' => 'vehiculos',
+            'imagen' => 'desco.webp'
         ]);
 
         //Administrativo->Oficios de comision
         DB::table('requerimientos')->insert([
             'nombre' => 'Oficios de comision',
             'tipo' => 'Administrativo',
-            'etiqueta' => 'oficios'
+            'etiqueta' => 'oficios',
+            'imagen' => 'desco.webp'
         ]);
 
         //Ubicaciones------------------------------------------------------------------------------------------------------------------------

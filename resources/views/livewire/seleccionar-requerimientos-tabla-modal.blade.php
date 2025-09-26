@@ -3,8 +3,8 @@
     <div class="flex -space-x-4 rtl:space-x-reverse p-3">
 
         @if ($array_requerimientos_seleccionados != null)
-            @foreach ($array_requerimientos_seleccionados as $requerimientos_seleccionados)
-                <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="{{asset('images/ilustracion.jpg')}}" alt="">
+            @foreach ($array_requerimientos_seleccionados_photo as $requerimientos_seleccionados)
+                <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="images/requerimientos/{{ $requerimientos_seleccionados }}" alt="">
             @endforeach
         @endif
         
@@ -61,7 +61,7 @@
                 <tbody>
 
                     @foreach ($requerimientos as $requerimiento)
-                        <tr wire:key="{{ $requerimiento->id }}" wire:click="setChecked({{ $requerimiento->id }})" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <tr wire:key="{{ $requerimiento->id }}" wire:click="setChecked({{ json_encode($requerimiento) }})" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <td class="w-4 p-4">
                                 <div class="flex items-center">
                                     @if (in_array($requerimiento->id, $array_requerimientos_seleccionados))
@@ -73,7 +73,7 @@
                                 </div>
                             </td>
                             <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                                <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="">
+                                <img class="w-10 h-10 rounded-full" src="images/requerimientos/{{ $requerimiento->imagen }}" alt="">
                                 <div class="ps-3">
                                     <div class="text-base font-semibold">{{ $requerimiento->nombre }}</div>
                                     <div class="font-normal text-gray-500">{{ $requerimiento->tipo }}</div>

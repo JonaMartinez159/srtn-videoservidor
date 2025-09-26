@@ -12,14 +12,7 @@
                 <div class="grid md:grid-cols-2 ">
                     <div class="p-8">
                         
-                        <!-- creado por -->
-                        <div class="w-full bg-white rounded-lg">
-                            <div class="flex flex-col items-center pb-10">
-                                <img class="w-24 h-24 mb-3 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="Bonnie image"/>
-                                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Bonnie Green</h5>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">Creado Por</span>
-                            </div>
-                        </div>
+                        
 
                         <!-- formulario -->
                         <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">Info General</span><br><br>
@@ -27,7 +20,7 @@
                             <div class="grid xl:grid-cols-2 2xl-grid-cols-3 border-b-2 mb-4">
                                 <div class="mb-4 inline w-fit">
                                     <label class="text-sm text-gray-500">Fecha</label><br>                  
-                                    <input disabled type="date" value="{{ $transmision_data[0]['fecha'] }}" class="w-fit bg-gray-50 border leading-none border-gray-300 text-sm text-gray-500 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                    <input disabled type="date" value="{{ $transmision_data['fecha'] }}" class="w-fit bg-gray-50 border leading-none border-gray-300 text-sm text-gray-500 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                     
                                 </div>
                                 <div class="mb-4">
@@ -38,7 +31,7 @@
                                                 <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
                                             </svg>
                                         </div>
-                                        <input type="time" id="time" value="{{ $transmision_data[0]['hora_llegada'] }}" class="bg-gray-50 border leading-none border-gray-300 text-sm text-gray-500 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="09:00" max="18:00" value="00:00" required />
+                                        <input type="time" id="time" value="{{ $transmision_data['hora_llegada'] }}" class="bg-gray-50 border leading-none border-gray-300 text-sm text-gray-500 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="09:00" max="18:00" value="00:00" required />
                                         
                                     </div> 
                                 </div>
@@ -50,22 +43,22 @@
                                                 <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
                                             </svg>
                                         </div>
-                                        <input disabled type="time" id="time" value="{{ $transmision_data[0]['hora_inicio'] }}" class="bg-gray-50 border leading-none border-gray-300 text-sm text-gray-500 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="09:00" max="18:00" value="00:00" required />
+                                        <input disabled type="time" id="time" value="{{ $transmision_data['hora_inicio'] }}" class="bg-gray-50 border leading-none border-gray-300 text-sm text-gray-500 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="09:00" max="18:00" value="00:00" required />
                                         
                                     </div> 
                                 </div>
                             </div>
 
                             <div class="relative z-0 w-full mb-5 group">
-                                <input disabled type="text" value="{{$transmision_data[0]['nombre']}}" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                <input disabled type="text" value="{{$transmision_data['nombre']}}" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                 <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre</label>
                             </div>
                             <div class="relative z-0 w-full mb-5 group">
-                                <input disabled type="text" value="{{$transmision_data[0]['descripcion']}}" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                <input disabled type="text" value="{{$transmision_data['descripcion']}}" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                 <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Descripcion</label>
                             </div>
                             <div class="relative z-0 w-full mb-5 group">
-                                <input disabled type="text" value="{{$transmision_data[0]['tipo']}}" name="repeat_password" id="floating_repeat_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                <input disabled type="text" value="{{$transmision_data['tipo']}}" name="repeat_password" id="floating_repeat_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                 <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Tipo</label>
                             </div>
                         </form><br>
@@ -76,23 +69,28 @@
                             <div class="w-full px-2 sm:p-4 dark:bg-gray-800 dark:border-gray-700">
                                 <div class="flow-root">
                                     <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-                                        @foreach ($personal_convocado as $key => $personal_data)                            
-                                            <li class="py-1 sm:py-2">
-                                                <div class="flex items-center">
-                                                    <div class="shrink-0">
-                                                        <img class="w-8 h-8 rounded-full" src="{{ $personal_data[0]['photo'] }}" alt="Neil image">
+
+                                        @if ($transmision_data['personal_convocado'] != null)
+                                            @foreach ($personal_convocado as $key => $personal_data)                            
+                                                <li class="py-1 sm:py-2">
+                                                    <div class="flex items-center">
+                                                        <div class="shrink-0">
+                                                            <img class="w-8 h-8 rounded-full" src="{{ $personal_data[0]['photo'] }}" alt="Neil image">
+                                                        </div>
+                                                        <div class="flex-1 min-w-0 ms-4">
+                                                            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                                                {{ $personal_data[0]['nombre'] }}
+                                                            </p>
+                                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                                {{ $personal_data[0]['area'] }}
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                    <div class="flex-1 min-w-0 ms-4">
-                                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                                                            {{ $personal_data[0]['nombre'] }}
-                                                        </p>
-                                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                                                            {{ $personal_data[0]['area'] }}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        @endforeach
+                                                </li>
+                                            @endforeach
+                                        @else
+                                        <p class="text-xs text-gray-500">No se convocó personal</p>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
@@ -107,20 +105,24 @@
                                 <div class="w-full px-2 sm:p-4 dark:bg-gray-800 dark:border-gray-700">
                                     <div class="flow-root">
                                         <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-                                            @foreach ($requerimientos as $requerimiento_data)                            
-                                                <li class="py-1 sm:py-2">
-                                                    <div class="flex items-center">
-                                                        <div class="shrink-0">
-                                                            <img class="w-8 h-8 rounded-full" src="{{ $requerimiento_data[0]['photo'] }}" alt="Neil image">
+                                            @if ($transmision_data['requerimientos'] != null)
+                                                @foreach ($requerimientos as $requerimiento_data)                            
+                                                    <li class="py-1 sm:py-2">
+                                                        <div class="flex items-center">
+                                                            <div class="shrink-0">
+                                                                <img class="w-8 h-8 rounded-full" src="images/requerimientos/{{ $requerimiento_data[0]['photo'] }}" alt="Neil image">
+                                                            </div>
+                                                            <div class="flex-1 min-w-0 ms-4">
+                                                                <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                                                    {{ $requerimiento_data[0]['nombre'] }}
+                                                                </p>
+                                                            </div>
                                                         </div>
-                                                        <div class="flex-1 min-w-0 ms-4">
-                                                            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                                                                {{ $requerimiento_data[0]['nombre'] }}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            @endforeach
+                                                    </li>
+                                                @endforeach
+                                            @else
+                                                <p class="text-xs text-gray-500">No se solicitaron requerimientos</p>
+                                            @endif
                                         </ul>
                                     </div>
                                 </div>
@@ -130,7 +132,21 @@
                         <!-- Ubicacion -->
                         <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">Ubicacion</span>
                         <div class="p-3">
-                            <iframe src="{{ $ubicacion[0]['ubicacion'] }}" class="w-full h-[300px]" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            @if ($transmision_data['ubicacion'] != null)
+                                @if (str_contains($ubicacion->ubicacion, "https"))
+                                    <iframe src="{{ $ubicacion->ubicacion }}" class="w-full h-[300px]" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                @else
+                                    <div class="flex w-full">
+                                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                            <path fill-rule="evenodd" d="M12 2a1 1 0 0 1 .932.638l7 18a1 1 0 0 1-1.326 1.281L13 19.517V13a1 1 0 1 0-2 0v6.517l-5.606 2.402a1 1 0 0 1-1.326-1.281l7-18A1 1 0 0 1 12 2Z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <p>Calle: {{ $ubicacion->calle }}, Colonia: {{ $ubicacion->colonia }}, #{{ $ubicacion->numero }} </p>
+                                        
+                                    </div>
+                                @endif
+                            @else
+                                <p class="text-xs text-gray-500">No se estableció una ubicación</p>
+                            @endif
                         </div><br>
 
                         <!-- Fotografias -->

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('personal_convocado', '150')->nullable();
             $table->string('requerimientos', '150')->nullable();
             $table->string('ubicacion', '10')->nullable();
-            $table->text('fotografias');
+            $table->text('fotografias')->nullable();
             $table->timestamps();
         });
     }

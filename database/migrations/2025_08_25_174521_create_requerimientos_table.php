@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nombre', '120');
             $table->string('tipo', '30');
             $table->string('etiqueta', '30');
+            $table->string('imagen', '30');
             $table->timestamps();
         });
     }

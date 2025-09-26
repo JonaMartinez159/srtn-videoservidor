@@ -88,7 +88,10 @@
             </div>
         </div>
         <div class="w-full p-8">
-            <x-button wire:click="save" class="w-full">Registrar Evento</x-button>
+            <div wire:loading class="w-full">  
+                <x-button wire:click="save" class="w-full disabled">Cargando...</x-button>
+            </div>
+            <x-button wire:click="save" wire:loading.remove class="w-full">Registrar Evento</x-button>
         </div>
     </div>
 </div>

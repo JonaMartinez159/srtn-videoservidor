@@ -5,6 +5,8 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\Attributes\On; 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AvisoEventoCreado;
 
 use App\Models\Transmision;
 
@@ -45,7 +47,7 @@ class RegistrarEvento extends Component
     #[On('UbicacionSeleccionada')] 
     public function getUbicacion($ubicacion_seleccionada){
         $this->ubicacion = $ubicacion_seleccionada;
-        //dd($ubicacion_seleccionada);
+        
     }
 
     #[On('FotosSeleccionadas')]
@@ -68,14 +70,26 @@ class RegistrarEvento extends Component
         $transmision->tipo = $this->tipo;
 
         //De componentes
-        $transmision->personal_convocado = implode(',', $this->personal_convocado);
-        $transmision->requerimientos = implode(',', $this->requerimientos);
-        $transmision->requerimientos = implode(',', $this->requerimientos);
+        if($this->personal_convocado != null){
+            $transmision->personal_convocado = implode(',', $this->personal_convocado);
+        }
+
+        if($this->requerimientos != null){
+           $transmision->requerimientos = implode(',', $this->requerimientos);
+        }
+
+        //dd($this->ubicacion);
         $transmision->ubicacion = $this->ubicacion;
-        $transmision->fotografias = implode(',', $this->fotos);
+
+        if($this->fotos != null){
+            $transmision->fotografias = implode(',', $this->fotos);
+        }
 
         $transmision->save();
-        
+
+        //enviar correo
+        Mail::to('clara50_267@lavep.org')->send(new AvisoEventoCreado($transmision->toArray()));
+
         $this->dispatch('registradoCorrectamente');
     }
 
